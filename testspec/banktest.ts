@@ -15,7 +15,7 @@ describe("Banking project Test", () =>{
         expect(alertText).toContain(text);
         alert.accept();
     }
-
+    //
     beforeEach(() =>{
         browser.get("http://www.way2automation.com/angularjs-protractor/banking/#/manager/addCust");
     })
