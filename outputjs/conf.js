@@ -6,7 +6,7 @@ exports.config = {
     capabilities: {
         browserName: 'chrome'
     },
-    specs: ['./testspec/banktest.js'],
+    specs: ['./testspec/banktestPOM.js'],
     seleniumAddress: 'http://localhost:4444/wd/hub',
     onPrepare: function () {
         var os = require('os');

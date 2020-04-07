@@ -13,6 +13,7 @@ describe("Banking project Test", function () {
         expect(alertText).toContain(text);
         alert.accept();
     }
+    //
     beforeEach(function () {
         protractor_1.browser.get("http://www.way2automation.com/angularjs-protractor/banking/#/manager/addCust");
     });
