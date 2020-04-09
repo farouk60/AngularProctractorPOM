@@ -1,21 +1,27 @@
-import {Config, browser, Capabilities } from "protractor";
+import { Config, browser, Capabilities } from "protractor";
 import { callbackify } from "util";
 
+var HtmlReporter = require('protractor-beautiful-reporter');
 
 export let config: Config = {
-    framework : "jasmine",
-
+    framework: "jasmine",
     capabilities: {
-        browserName : 'chrome'
+        browserName: 'chrome'
     },
-
-    specs:['./testspec/banktestPOM.js'],
-
+    specs: ['./specs/banktestPOM.js'],
     seleniumAddress: 'http://localhost:4444/wd/hub',
-
-    onPrepare:() =>{
+    onPrepare: () => {
+        
         var os = require('os');
         browser.manage().window().maximize();
         browser.manage().timeouts().implicitlyWait(4000);
-    }
+        jasmine.getEnv().addReporter(new HtmlReporter({
+            baseDirectory: 'tmp/screenshots',
+            screenshotsSubfolder: 'images',
+            jsonsSubfolder: 'jsons',
+            docTitle: 'Mon Rapport de Test',
+            takeScreenShotsOnlyForFailedSpecs: true
+         }).getJasmine2Reporter());
+      }
+
 }
